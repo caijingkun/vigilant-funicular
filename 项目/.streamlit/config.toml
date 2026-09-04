@@ -1,0 +1,35 @@
+# =====================================================================
+# Streamlit 全局配置
+# 同时适用于本地开发（python run.py）与 Streamlit Cloud 部署
+# 文档：https://docs.streamlit.io/develop/api-reference/configuration/config.toml
+# =====================================================================
+
+# ---------- 服务器 ----------
+[server]
+# Streamlit Cloud 默认已 headless 启动，此处显式声明以防万一
+headless = true
+# 允许上传 CSV 最大 200MB（默认 200MB 已足够，按需可放大）
+maxUploadSize = 200
+# 关闭 CORS 校验（避免跨域嵌入时报错；纯分享站用默认也 OK）
+enableCORS = false
+enableXsrfProtection = false
+# 文件监听（开发用；Cloud 环境忽略此设置）
+fileWatcherType = "poll"
+
+# ---------- 主题（贴合项目「双碳 · 蓝绿」主色）----------
+[theme]
+base = "light"
+primaryColor = "#2196F3"          # 品牌蓝（按钮/高亮）
+backgroundColor = "#F5FBFF"       # 淡蓝背景
+secondaryBackgroundColor = "#E8F5E9"  # 淡绿（卡片/折叠区背景）
+textColor = "#1A2332"             # 深色正文
+font = "sans serif"
+
+# ---------- 浏览器日志级别 ----------
+[logger]
+level = "info"
+
+# ---------- 客户端显示 ----------
+[browser]
+# Cloud 环境 serverAddress 无意义（由平台代理），但本地有用
+gatherUsageStats = false
