@@ -1,3 +1,0 @@
-# Streamlit Community Cloud 系统依赖（Debian apt 包）
-# 安装中文字体，否则图表中文在 Linux 云端显示为方框
-fonts-wqy-zenhei

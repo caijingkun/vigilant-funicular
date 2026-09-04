@@ -24,7 +24,9 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
 # 设置中文字体
-plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans']
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei',
+                                    'Noto Sans CJK SC', 'WenQuanYi Micro Hei',
+                                    'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 路径
@@ -35,7 +37,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from decision_algorithm import EnergyDecisionMaker
 
-# 页面配置由 streamlit_app.py 统一设置，避免重复调用报错
+# 页面配置（仅在直接运行 app.py 时生效；被 streamlit_app.py 导入时跳过，避免重复调用）
+if __name__ == '__main__':
+    st.set_page_config(
+        page_title="教室能耗智能决策系统",
+        page_icon="🌱",
+        layout="wide"
+    )
+
 # 配色
 COLOR_PRIMARY = '#2196F3'   # 蓝色
 COLOR_SECONDARY = '#4CAF50' # 绿色
